@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Using Poppins font like many modern UIs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="logo-wrapper">
+            <!-- Replace with your actual logo -->
+            <img src="placeholder-logo.png" alt="Logo" class="logo">
+        </div>
+
+        <h2>Client Registration</h2>
+        <p class="subtitle">Please provide your details below</p>
+
+        <form id="registrationForm" action="#" method="POST" onsubmit="handleSubmit(event)">
+
+            <div class="form-group">
+                <label for="fullName" class="visually-hidden">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Full Name">
+            </div>
+
+             <!-- Visually group Sex options -->
+             <div class="form-group">
+                <label class="group-label">Sex <span class="required">*</span></label>
+                <div class="radio-group styled-radio-group">
+                    <label>
+                        <input type="radio" name="sex" value="Male" required>
+                        <span>Male</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sex" value="Female">
+                        <span>Female</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sex" value="Other">
+                        <span>Other</span>
+                    </label>
+                     <label>
+                        <input type="radio" name="sex" value="Prefer not to say">
+                        <span>Prefer not</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                 <label for="age" class="visually-hidden">Age</label>
+                 <input type="number" id="age" name="age" min="0" max="120" required placeholder="Age">
+            </div>
+
+             <!-- Visually group Services -->
+            <div class="form-group">
+                 <label class="group-label">Services Availed <span class="required">*</span></label>
+                 <div class="checkbox-group styled-checkbox-group">
+                     <label>
+                         <input type="checkbox" name="services" value="Consultation" class="service-checkbox">
+                         <span>Consultation</span>
+                     </label>
+                     <label>
+                         <input type="checkbox" name="services" value="Procedure A" class="service-checkbox">
+                         <span>Procedure A</span>
+                     </label>
+                     <label>
+                         <input type="checkbox" name="services" value="Procedure B" class="service-checkbox">
+                         <span>Procedure B</span>
+                     </label>
+                      <label>
+                         <input type="checkbox" name="services" value="Follow-up" class="service-checkbox">
+                         <span>Follow-up</span>
+                     </label>
+                     <label>
+                         <input type="checkbox" name="services" value="Other" id="serviceOtherCheckbox" class="service-checkbox">
+                         <span>Other</span>
+                    </label>
+                 </div>
+            </div>
+
+             <div class="form-group" id="otherServiceGroup" style="display: none;">
+                 <label for="otherService" class="visually-hidden">If Other, please specify:</label>
+                 <input type="text" id="otherService" name="otherService" placeholder="Specify other service">
+             </div>
+
+            <div class="form-group">
+                 <label for="sector" class="visually-hidden">Sector</label>
+                 <select id="sector" name="sector">
+                     <option value="" disabled selected>Sector (Optional)</option>
+                     <option value="Private">Private</option>
+                     <option value="Public">Public</option>
+                     <option value="Non-Profit">Non-Profit</option>
+                     <option value="Academia">Academia</option>
+                     <option value="Self-Employed">Self-Employed</option>
+                     <option value="Other">Other</option>
+                 </select>
+             </div>
+
+             <!-- Visually group Rating -->
+            <div class="form-group">
+                 <label class="group-label">Experience Rating <span class="required">*</span></label>
+                 <div class="radio-group rating-group">
+                     <label><input type="radio" name="rating" value="5" required> <span>Excellent</span></label>
+                     <label><input type="radio" name="rating" value="4"> <span>Very Good</span></label>
+                     <label><input type="radio" name="rating" value="3"> <span>Good</span></label>
+                     <label><input type="radio" name="rating" value="2"> <span>Fair</span></label>
+                     <label><input type="radio" name="rating" value="1"> <span>Poor</span></label>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                 <label for="recommendations" class="visually-hidden">Recommendations/Comments</label>
+                 <textarea id="recommendations" name="recommendations" rows="3" placeholder="Recommendations/Comments (Optional)"></textarea>
+            </div>
+
+            <!-- Visually group First Time Visit -->
+             <div class="form-group">
+                <label class="group-label">First Time Visit? <span class="required">*</span></label>
+                <div class="radio-group styled-radio-group first-visit-group">
+                    <label>
+                        <input type="radio" name="firstTime" value="Yes" required>
+                        <span>Yes</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="firstTime" value="No">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group signature-group">
+                <label for="signatureCanvas" class="group-label">Signature <span class="required">*</span></label>
+                <div class="canvas-container">
+                   <canvas id="signatureCanvas"></canvas>
+                </div>
+                 <button type="button" id="clearSignatureBtn" class="clear-btn">Clear</button>
+                 <input type="hidden" id="signatureData" name="signatureData">
+            </div>
+
+             <!-- Terms & Conditions Checkbox (Style only) -->
+             <div class="form-group terms-group">
+                <label>
+                    <input type="checkbox" name="terms" id="termsCheckbox" required>
+                    <span>I agree to the <a href="#" target="_blank">Terms & Conditions</a></span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Register Client</button>
+            </div>
+
+             <!-- Already have an account link (Style only) -->
+            <p class="footer-link">Already registered? <a href="#">Sign In</a></p>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
