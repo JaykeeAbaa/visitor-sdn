@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Registration</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Using Poppins font like many modern UIs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,125 +15,105 @@
         <div class="logo-wrapper">
             <!-- Replace with your actual logo -->
             <img src="placeholder-logo.png" alt="Logo" class="logo">
+             <!-- Optional: Add Office Name/Address here if needed, styled separately -->
+             <!--
+             <div class="office-details-header">
+                <h1>Your Office Name</h1>
+                <p>123 Office St, Cityville</p>
+             </div>
+             -->
         </div>
 
-        <h2>Client Registration</h2>
-        <p class="subtitle">Please provide your details below</p>
+        <h2 class="form-title">Client Registration</h2>
+        <!-- <p class="subtitle">Please provide your details below</p> -->
 
         <form id="registrationForm" action="#" method="POST" onsubmit="handleSubmit(event)">
 
             <div class="form-group">
-                <label for="fullName" class="visually-hidden">Full Name</label>
-                <input type="text" id="fullName" name="fullName" required placeholder="Full Name">
+                <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name" class="modern-input">
             </div>
 
-             <!-- Visually group Sex options -->
+            <div class="form-group">
+                <label for="sex" class="form-label">Sex <span class="required">*</span></label>
+                <select id="sex" name="sex" required class="modern-input">
+                    <option value="" disabled selected>Select Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                 <label for="age" class="form-label">Age <span class="required">*</span></label>
+                 <input type="number" id="age" name="age" min="0" max="120" required placeholder="Enter your age" class="modern-input">
+            </div>
+
              <div class="form-group">
-                <label class="group-label">Sex <span class="required">*</span></label>
-                <div class="radio-group styled-radio-group">
-                    <label>
-                        <input type="radio" name="sex" value="Male" required>
-                        <span>Male</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sex" value="Female">
-                        <span>Female</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sex" value="Other">
-                        <span>Other</span>
-                    </label>
-                     <label>
-                        <input type="radio" name="sex" value="Prefer not to say">
-                        <span>Prefer not</span>
-                    </label>
-                </div>
+                <label for="services_availed" class="form-label">Services Availed <span class="required">*</span></label>
+                <select id="services_availed" name="services_availed" required class="modern-input">
+                    <option value="" disabled selected>Select service</option>
+                    <option value="Free Wi-Fi for All (FW4A)">Free Wi-Fi for All (FW4A)</option>
+                    <option value="Tech4ED-DTC Program">Tech4ED-DTC Program</option>
+                    <option value="Cybersecurity Awareness and PNPKI Services">Cybersecurity Awareness and PNPKI Services</option>
+                    <option value="ICT Training and Capacity Building">ICT Training and Capacity Building</option>
+                    <option value="Government Network (GovNet) Connectivity">Government Network (GovNet) Connectivity</option>
+                    <option value="Smart Villages, Smart Islands (SVSI) Initiative">Smart Villages, Smart Islands (SVSI) Initiative</option>
+                    <option value="National Broadband Program (NBP)">National Broadband Program (NBP)</option>
+                    <option value="DICT Digital Governance (eGov Services)">DICT Digital Governance (eGov Services)</option>
+                    <option value="ICT Industry Development">ICT Industry Development</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <div id="other_service_div" class="form-group hidden">
+                 <label for="other_service" class="form-label">Specify Other Service <span class="required">*</span></label>
+                 <input type="text" id="other_service" name="other_service" class="modern-input" placeholder="Please specify other service">
+                 <p class="form-hint">Provide details about the specific service.</p>
             </div>
 
             <div class="form-group">
-                 <label for="age" class="visually-hidden">Age</label>
-                 <input type="number" id="age" name="age" min="0" max="120" required placeholder="Age">
+                <label for="sector" class="form-label">Sector <span class="required">*</span></label>
+                <select id="sector" name="sector" required class="modern-input">
+                    <option value="" disabled selected>Select your sector</option>
+                    <option value="Out-of-School Youth & Adults">Out-of-School Youth & Adults</option>
+                    <option value="Educators">Educators</option>
+                    <option value="Students">Students</option>
+                    <option value="People with Disabilities">People with Disabilities</option>
+                    <option value="Women">Women</option>
+                    <option value="Senior Citizens">Senior Citizens</option>
+                    <option value="Overseas Filipino Workers (OFWs) and Their Families/Relatives">Overseas Filipino Workers (OFWs) and Their Families/Relatives</option>
+                    <option value="Entrepreneurs">Entrepreneurs</option>
+                    <option value="Indigenous Peoples">Indigenous Peoples</option>
+                    <option value="Farmers and Fisherfolk">Farmers and Fisherfolk</option>
+                    <option value="Government Employees & Public Servants">Government Employees & Public Servants</option>
+                    <option value="Micro, Small, and Medium Enterprises (MSMEs)">Micro, Small, and Medium Enterprises (MSMEs)</option>
+                    <option value="Health Workers & Medical Professionals">Health Workers & Medical Professionals</option>
+                    <option value="Transport & Logistics Workers">Transport & Logistics Workers</option>
+                    <option value="Informal Workers & Daily Wage Earners">Informal Workers & Daily Wage Earners</option>
+                </select>
             </div>
 
-             <!-- Visually group Services -->
             <div class="form-group">
-                 <label class="group-label">Services Availed <span class="required">*</span></label>
-                 <div class="checkbox-group styled-checkbox-group">
-                     <label>
-                         <input type="checkbox" name="services" value="Consultation" class="service-checkbox">
-                         <span>Consultation</span>
-                     </label>
-                     <label>
-                         <input type="checkbox" name="services" value="Procedure A" class="service-checkbox">
-                         <span>Procedure A</span>
-                     </label>
-                     <label>
-                         <input type="checkbox" name="services" value="Procedure B" class="service-checkbox">
-                         <span>Procedure B</span>
-                     </label>
-                      <label>
-                         <input type="checkbox" name="services" value="Follow-up" class="service-checkbox">
-                         <span>Follow-up</span>
-                     </label>
-                     <label>
-                         <input type="checkbox" name="services" value="Other" id="serviceOtherCheckbox" class="service-checkbox">
-                         <span>Other</span>
-                    </label>
-                 </div>
-            </div>
-
-             <div class="form-group" id="otherServiceGroup" style="display: none;">
-                 <label for="otherService" class="visually-hidden">If Other, please specify:</label>
-                 <input type="text" id="otherService" name="otherService" placeholder="Specify other service">
-             </div>
-
-            <div class="form-group">
-                 <label for="sector" class="visually-hidden">Sector</label>
-                 <select id="sector" name="sector">
-                     <option value="" disabled selected>Sector (Optional)</option>
-                     <option value="Private">Private</option>
-                     <option value="Public">Public</option>
-                     <option value="Non-Profit">Non-Profit</option>
-                     <option value="Academia">Academia</option>
-                     <option value="Self-Employed">Self-Employed</option>
-                     <option value="Other">Other</option>
+                 <label for="experienceRating" class="form-label">Experience Rating <span class="required">*</span></label>
+                 <select id="experienceRating" name="experienceRating" required class="modern-input">
+                    <option value="" disabled selected>Rate your experience</option>
+                    <option value="5">Excellent</option>
+                    <option value="4">Very Good</option>
+                    <option value="3">Good</option>
+                    <option value="2">Fair</option>
+                    <option value="1">Poor</option>
                  </select>
-             </div>
-
-             <!-- Visually group Rating -->
-            <div class="form-group">
-                 <label class="group-label">Experience Rating <span class="required">*</span></label>
-                 <div class="radio-group rating-group">
-                     <label><input type="radio" name="rating" value="5" required> <span>Excellent</span></label>
-                     <label><input type="radio" name="rating" value="4"> <span>Very Good</span></label>
-                     <label><input type="radio" name="rating" value="3"> <span>Good</span></label>
-                     <label><input type="radio" name="rating" value="2"> <span>Fair</span></label>
-                     <label><input type="radio" name="rating" value="1"> <span>Poor</span></label>
-                 </div>
             </div>
 
             <div class="form-group">
-                 <label for="recommendations" class="visually-hidden">Recommendations/Comments</label>
-                 <textarea id="recommendations" name="recommendations" rows="3" placeholder="Recommendations/Comments (Optional)"></textarea>
-            </div>
-
-            <!-- Visually group First Time Visit -->
-             <div class="form-group">
-                <label class="group-label">First Time Visit? <span class="required">*</span></label>
-                <div class="radio-group styled-radio-group first-visit-group">
-                    <label>
-                        <input type="radio" name="firstTime" value="Yes" required>
-                        <span>Yes</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="firstTime" value="No">
-                        <span>No</span>
-                    </label>
-                </div>
+                 <label for="recommendations" class="form-label">Recommendations/Comments</label>
+                 <textarea id="recommendations" name="recommendations" rows="3" placeholder="Any feedback or suggestions? (Optional)" class="modern-input"></textarea>
             </div>
 
             <div class="form-group signature-group">
-                <label for="signatureCanvas" class="group-label">Signature <span class="required">*</span></label>
+                <label for="signatureCanvas" class="form-label">Signature <span class="required">*</span></label>
                 <div class="canvas-container">
                    <canvas id="signatureCanvas"></canvas>
                 </div>
@@ -142,15 +121,24 @@
                  <input type="hidden" id="signatureData" name="signatureData">
             </div>
 
-             <!-- Terms & Conditions Checkbox (Style only) -->
-             <div class="form-group terms-group">
-                <label>
-                    <input type="checkbox" name="terms" id="termsCheckbox" required>
-                    <span>I agree to the <a href="#" target="_blank">Terms & Conditions</a></span>
+            <!-- Single Checkbox for First Time Visit -->
+            <div class="form-group check-group">
+                <label class="check-label">
+                    <input type="checkbox" id="firstTimeVisit" name="firstTimeVisit" value="Yes">
+                    <span>This is my first time visiting</span>
                 </label>
             </div>
 
-            <div class="form-group">
+             <!-- Terms & Conditions Checkbox (Keep if needed) -->
+             <div class="form-group check-group">
+                <label class="check-label">
+                    <input type="checkbox" name="terms" id="termsCheckbox" required>
+                    <span>I agree to the <a href="#" target="_blank">Terms & Conditions</a> <span class="required">*</span></span>
+                </label>
+            </div>
+
+
+            <div class="form-group submit-button-group">
                 <button type="submit" class="submit-btn">Register Client</button>
             </div>
 
