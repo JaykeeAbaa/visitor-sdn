@@ -1,0 +1,352 @@
+/* Basic Reset & Defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+/* Form Container */
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+/* Header Section Styles */
+.header-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* Slightly reduced bottom margin */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-logo {
+    height: 70px; /* Increased logo height */
+    width: auto;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.department-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #1f2937;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.office-name {
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #4b5563;
+    margin: 0;
+    margin-top: 4px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    font-size: 1.6em; /* Reduced font size */
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 5px; /* Reduced bottom margin */
+    color: #111;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 0.9em; /* Reduced font size */
+    color: #666;
+    margin-bottom: 30px; /* Adjusted bottom margin */
+}
+
+/* Form Element Styling */
+.form-group {
+    margin-bottom: 20px; /* Slightly reduced default spacing */
+    position: relative;
+}
+
+/* Standard Visible Labels */
+.form-label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+/* Required Indicator */
+.required {
+    color: #ef4444;
+    margin-left: 3px;
+}
+
+/* Input Fields, Select, Textarea */
+.modern-input {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    color: #111827;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.modern-input:focus {
+    outline: none;
+    border-color: #FF8800;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 136, 0, 0.2);
+}
+
+textarea.modern-input {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Placeholder Text */
+::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+}
+
+/* Select Specific Styling */
+select.modern-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 45px;
+    cursor: pointer;
+}
+select.modern-input:required:invalid {
+  color: #9ca3af;
+}
+
+
+/* Radio Groups (Only used for First Time Visit in previous version, keeping for potential future use) */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding-top: 5px;
+}
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 0.95em;
+    color: #374151;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.radio-group input[type="radio"] {
+     margin-right: 8px;
+     accent-color: #FF8800;
+     transform: scale(1.15);
+     cursor: pointer;
+     position: relative;
+     top: -1px;
+}
+
+/* Styling for the Single "First Visit" Checkbox */
+.first-visit-checkbox-group {
+    /* margin-top: 5px; Remove specific top margin if default form-group margin is enough */
+    /* margin-bottom: 25px; Spacing below this checkbox */
+}
+.first-visit-checkbox-group label {
+    display: flex; /* Align checkbox and text */
+    align-items: center; /* Center vertically */
+    /* align-items: flex-start; Use this if label text might wrap and you want checkbox at top */
+    font-size: 0.95em; /* Slightly larger text */
+    color: #4b5563;
+    line-height: 1.5;
+    cursor: pointer;
+    font-weight: 500; /* Make it slightly bolder */
+}
+.first-visit-checkbox-group input[type="checkbox"] {
+    margin-right: 10px; /* More space after checkbox */
+    margin-top: 0; /* Adjust vertical alignment if needed */
+    flex-shrink: 0;
+    accent-color: #FF8800;
+    transform: scale(1.2); /* Make checkbox slightly larger */
+    cursor: pointer;
+    position: relative;
+    top: -1px; /* Fine-tune vertical alignment */
+}
+
+
+/* Signature Pad */
+.signature-group .form-label {
+    margin-bottom: 8px;
+}
+.canvas-container {
+    border: 1px dashed #d1d5db;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 150px;
+    cursor: crosshair;
+    touch-action: none;
+    overflow: hidden;
+    position: relative;
+}
+#signatureCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+.clear-btn {
+    background: none;
+    border: none;
+    color: #FF8800;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 0.9em;
+    float: right;
+    margin-top: -5px;
+    position: relative;
+    z-index: 10;
+}
+.clear-btn:hover {
+    text-decoration: underline;
+}
+
+/* Removed Terms Group Styling */
+
+/* Submit Button Group */
+.submit-button-group {
+    margin-top: 30px; /* Ensure space above the button */
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #ff8800, #ffaa33);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 136, 0, 0.2);
+}
+.submit-btn:hover {
+    background: linear-gradient(to right, #e67a00, #ff9900);
+    box-shadow: 0 6px 20px rgba(255, 136, 0, 0.3);
+    transform: translateY(-1px);
+}
+.submit-btn:active {
+    transform: translateY(0px) scale(0.99);
+    box-shadow: 0 2px 10px rgba(255, 136, 0, 0.2);
+}
+
+/* Removed Footer Link Styling */
+
+/* Helper Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.hidden {
+    display: none;
+}
+.mt-2 {
+    margin-top: 10px;
+}
+.form-hint {
+    font-size: 0.85em;
+    color: #6b7280;
+    margin-top: 6px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+    .form-container {
+        padding: 25px 20px;
+    }
+
+    /* Header Responsive adjustments */
+    .header-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+    .header-logo {
+        height: 60px; /* Adjusted logo height for smaller screens */
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .department-name {
+        font-size: 1em;
+    }
+    .office-name {
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.4em; /* Further reduced title size */
+    }
+    .subtitle {
+        font-size: 0.85em; /* Further reduced subtitle size */
+        margin-bottom: 25px;
+    }
+
+    .submit-btn {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .first-visit-checkbox-group label {
+        font-size: 0.9em; /* Slightly smaller text on mobile */
+    }
+     .first-visit-checkbox-group input[type="checkbox"] {
+        transform: scale(1.1); /* Slightly smaller checkbox on mobile */
+     }
+}
